@@ -1,7 +1,7 @@
 defmodule Kbc.QuizItem do
   defstruct(
-    question: "",
-    correct_option: "",
+    question_id: nil,
+    correct_option: nil,
     incorrect_options: []
   )
 

@@ -3,16 +3,14 @@ defmodule Kbc do
   Documentation for Kbc.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Kbc.hello()
-      :world
-
-  """
   def hello do
     :world
   end
+
+  def start do
+    # create Quiz
+    # Quiz.new
+  end
+
+
 end
