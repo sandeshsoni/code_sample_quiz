@@ -2,48 +2,70 @@ defmodule Kbc.Quiz do
   alias Kbc.{ Question, QuizRepo, QuizItem }
 
   defstruct(
-    name: "",
-    question_answers: [%{a: "aa"}],
+    # name: "",
+    quiz_items: [],
+    # question_answers: [],
     answersheet: [],
-    score: 0
+    # score: 0
   )
 
   def new do
-    take_input()
+    %Kbc.Quiz{
+      quiz_items: feed_question_answers
+    }
   end
 
-  def take_input do
-    IO.puts "Hello, choose appropriate option"
-    IO.puts "1. Ask next Question"
-    IO.puts "2. Add a new Question"
-    IO.puts "0. Show Score"
-    input = IO.gets "Enter an option \n"
-    # collect input
+  def start(%{quiz_items: questions, answers_sheet: answers_sheet} = state) do
+    # print question
+    # ask answer
 
-    case String.trim input do
-      "1" -> ask_question_and_collect_answer
-      "2" -> feed_question_answers
-      "0" -> calculate_score
-      true -> IO.puts "wrong input message"
+    # next question or score
+
+    for q_id <- questions do
+      input_answer = ask_question_and_collect_answer(q_id)
+      new_answer_sheet = Map.put(answers_sheet, q_id, input_answer)
     end
-    # take_input()
+
+
+    # %{state | %{ quiz_items: remaining_items, answers_sheet } }
+    # return the updated state, removing quiz_line_item and storing the answer
   end
 
-  def hello_message do
+  # defp take_input do
+  #   print_choose_options_message
+  #   input = IO.gets "Enter an option \n"
+  #   # collect input
 
-  end
+  #   case String.trim input do
+  #     "1" -> ask_question_and_collect_answer
+  #     "2" -> feed_question_answers
+  #     "0" -> calculate_score
+  #     true -> IO.puts "wrong input message"
+  #   end
+  #   # take_input()
+  # end
 
-  defp record_answer(q_id, answer_option) do
-    # add answer to hash
-  end
+  # def print_choose_options_message do
+  #   IO.puts "Hello, choose appropriate option"
+  #   IO.puts "1. Ask next Question"
+  #   IO.puts "2. Add a new Question"
+  #   IO.puts "0. Show Score"
+  # end
 
-  def ask_question_and_collect_answer do
+  # defp record_answer(q_id, answer_option) do
+  #   # add answer to hash
+  # end
+
+  defp ask_question_and_collect_answer(q) do
     # if no question, then "no questions left, quiz complete"
-    question_answers
+    # [q | remainig] = state.question_answers
+
+    Question.display_with_options(q)
+    input_answer = IO.gets "Enter option"
   end
 
-  defp calculate_score do
-    #
+  def calculate_score(%{ "question": qs, answer_sheet: answers_sheet } = state) do
+    # QuizItem
   end
 
   def feed_question_answers do
