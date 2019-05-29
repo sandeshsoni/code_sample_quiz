@@ -15,13 +15,17 @@ defmodule Kbc.Quiz do
     }
   end
 
-  def start(%{quiz_items: questions, answers_sheet: answers_sheet} = state) do
+  # def start(%{quiz_items: questions, answers_sheet: answers_sheet} = state) do
+  def start(state) do
+    # %{quiz_items: questions, answers_sheet: answers_sheet} = state
+    quiz_items = state.quiz_items
+    answers_sheet = state.answersheet
     # print question
     # ask answer
 
     # next question or score
 
-    for q_id <- questions do
+    for q_id <- quiz_items do
       input_answer = ask_question_and_collect_answer(q_id)
       new_answer_sheet = Map.put(answers_sheet, q_id, input_answer)
     end
