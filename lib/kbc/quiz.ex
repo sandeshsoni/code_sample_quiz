@@ -3,7 +3,7 @@ defmodule Kbc.Quiz do
 
   defstruct(
     name: "",
-    question_answers: [],
+    question_answers: [%{a: "aa"}],
     answersheet: [],
     score: 0
   )
@@ -26,7 +26,7 @@ defmodule Kbc.Quiz do
       "0" -> calculate_score
       true -> IO.puts "wrong input message"
     end
-    take_input()
+    # take_input()
   end
 
   def hello_message do
@@ -39,6 +39,7 @@ defmodule Kbc.Quiz do
 
   def ask_question_and_collect_answer do
     # if no question, then "no questions left, quiz complete"
+    question_answers
   end
 
   defp calculate_score do
