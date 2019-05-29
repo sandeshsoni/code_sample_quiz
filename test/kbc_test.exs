@@ -5,4 +5,9 @@ defmodule KbcTest do
   test "greets the world" do
     assert Kbc.hello() == :world
   end
+
+  test "foo" do
+    state = Kbc.Quiz.new
+    Kbc.Quiz.start(state)
+  end
 end
