@@ -3,7 +3,7 @@ defmodule Kbc.Quiz do
 
   defstruct(
     quiz_items: [],
-    answersheet: [],
+    answersheet: %{},
     current_position: 0,
     score: 0
   )
