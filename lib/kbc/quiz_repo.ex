@@ -5,11 +5,17 @@ defmodule Kbc.QuizRepo do
   end
 
   defp question do
+    # We must get such response from API
     %{
-      question_id: 0,
+      question_id: Enum.random( 0..99 ),
       question_text: "lorel ipsum",
-      options: [a: "abc", b: "def", c: "ghi", d: "xyz"],
+      correct_option: "xyz",
+      incorrect_options: ["abc", "def", "ghi"]
     }
   end
+
+  # defp question do
+  #   # Kbc.Question.new("lorel ipsum",  [])
+  # end
 
 end

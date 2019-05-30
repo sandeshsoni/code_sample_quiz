@@ -1,14 +1,16 @@
 defmodule Kbc.QuizItem do
-  alias Kbc.QuizRepo
+  alias Kbc.{QuizRepo, Question}
   defstruct(
     question_id: nil,
-    question_text: "",
-    options: []
+    question: nil
   )
+
+  def new do
+  end
 
   def display(item) do
     IO.puts "question"
-    IO.puts item.question_text
+    IO.puts item.text
     IO.puts seperator
     IO.puts "options"
     IO.puts seperator
@@ -20,7 +22,23 @@ defmodule Kbc.QuizItem do
     # ask repo for 5 items
     # store question and options
     # options: [a: "abc", b: "def", c: "ghi", d: "xyz"],
-    QuizRepo.questions()
+    # QuizRepo.questions()
+    # Kbc.Question.new("lorel ipsum",  [])
+
+    quests_from_api = QuizRepo.questions()
+
+    quests_from_api
+    |> Enum.map(fn raw_q ->
+      %Kbc.QuizItem{
+        question: Question.new(
+          raw_q.question_text,
+          raw_q.correct_option,
+          raw_q.incorrect_options)}
+    end)
   end
+
+  # def add_question do
+  #   Kbc.Question.new("lorel ipsum",  [])
+  # end
 
 end

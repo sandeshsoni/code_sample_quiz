@@ -34,9 +34,9 @@ defmodule Kbc.Quiz do
 
   defp ask_question_and_collect_answer(item) do
     QuizItem.display(item)
-    # IO.gets "Enter option"
+    IO.gets "Enter option"
     # add validation if needed. A, B, C, D
-    "B"
+    # "B"
   end
 
 end
