@@ -16,11 +16,12 @@ defmodule Kbc.Quiz do
   end
 
   def ask_previous_question(state) do
+    #  ask_question, with position as minus 1
     # ask_question(%{state | state.current_position})
   end
 
   def ask_question(state) do
-    quiz_item = state.quiz_items[state.current_position]
+    quiz_item = Enum.at(state.quiz_items, state.current_position)
     answer = ask_question_and_collect_answer(quiz_item)
 
     %{state | answersheet: Map.put(state.answersheet, quiz_item.question_id, answer)  }
@@ -33,7 +34,9 @@ defmodule Kbc.Quiz do
 
   defp ask_question_and_collect_answer(item) do
     QuizItem.display(item)
-    IO.gets "Enter option"
+    # IO.gets "Enter option"
+    # add validation if needed. A, B, C, D
+    "B"
   end
 
 end

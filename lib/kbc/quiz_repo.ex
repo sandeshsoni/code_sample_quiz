@@ -6,9 +6,9 @@ defmodule Kbc.QuizRepo do
 
   defp question do
     %{
-      q: "lorel ipsum",
-      incorrect_options: ["abc", "def", "ghi"],
-      correct_option: "xyz"
+      question_id: 0,
+      question_text: "lorel ipsum",
+      options: [a: "abc", b: "def", c: "ghi", d: "xyz"],
     }
   end
 

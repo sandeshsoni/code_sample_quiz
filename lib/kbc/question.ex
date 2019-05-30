@@ -7,15 +7,16 @@ defmodule Kbc.Question do
     incorrect_options: []
   )
 
+
   def add_question do
   end
 
-  def add_question_answer do
-  end
+  # def add_question_answer do
+  # end
 
-  def add_options(options) do
-    # correct option
-  end
+  # def add_options(options) do
+  #   # correct option
+  # end
 
 
 end
