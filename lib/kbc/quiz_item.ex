@@ -1,15 +1,21 @@
 defmodule Kbc.QuizItem do
   defstruct(
     question_id: nil,
-    correct_option: nil,
-    incorrect_options: []
+    question_text: "",
+    options: []
+    # solution_id: nil
   )
 
-  def add_question do
+  def display(q_item_id) do
+    # Question from DB
+    # IO.puts q.text
+    # IO.puts q.options
   end
 
-  def add_question_answer do
+  def feed_question_answers do
+    # ask repo for 5 items
+    # store question ids
+    QuizRepo.questions()
   end
-
 
 end

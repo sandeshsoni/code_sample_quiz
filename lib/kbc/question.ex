@@ -3,18 +3,19 @@ defmodule Kbc.Question do
   defstruct(
     id: nil,
     text: "",
-    options: [],
-    solution_id: nil
+    correct_option: nil,
+    incorrect_options: []
   )
+
+  def add_question do
+  end
+
+  def add_question_answer do
+  end
 
   def add_options(options) do
     # correct option
   end
 
-  def display_with_options(qid) do
-    # Question from DB
-    # IO.puts q.text
-    # IO.puts q.options
-  end
 
 end
