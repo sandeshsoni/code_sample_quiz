@@ -18,6 +18,8 @@ defmodule Kbc.Quiz do
   def ask_previous_question(state) do
     #  ask_question, with position as minus 1
     # ask_question(%{state | state.current_position})
+    # TODO previous position is still maintaining old pos
+   ask_question( %{state | current_position: state.current_position - 1 })
   end
 
   def ask_question(state) do
@@ -35,6 +37,7 @@ defmodule Kbc.Quiz do
   defp ask_question_and_collect_answer(item) do
     QuizItem.display(item)
     IO.gets "Enter option"
+    # |> String.trim
     # add validation if needed. A, B, C, D
     # "B"
   end
