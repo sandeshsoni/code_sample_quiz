@@ -30,8 +30,11 @@ defmodule Kbc.Question do
   def display(question) do
     IO.puts "question"
     IO.puts question.text
+
     IO.puts seperator
-    IO.puts "options"
+    question.options
+    |> Enum.sort
+    |> Enum.each fn {letter, opt} -> IO.puts "#{letter}. #{opt}" end
     IO.puts seperator
   end
 

@@ -9,11 +9,7 @@ defmodule Kbc.QuizItem do
   end
 
   def display(item) do
-    IO.puts "question"
-    IO.puts item.text
-    IO.puts seperator
-    IO.puts "options"
-    IO.puts seperator
+    Question.display(item.question)
   end
 
   defp seperator, do: "------------------------"

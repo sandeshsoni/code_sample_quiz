@@ -24,7 +24,7 @@ defmodule Kbc.Quiz do
     quiz_item = Enum.at(state.quiz_items, state.current_position)
     answer = ask_question_and_collect_answer(quiz_item)
 
-    %{state | answersheet: Map.put(state.answersheet, quiz_item.question_id, answer)  }
+    %{state | answersheet: Map.put(state.answersheet, quiz_item.question.id, answer), current_position: state.current_position + 1 }
   end
 
 
